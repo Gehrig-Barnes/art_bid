@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :reviews
-  resources :bids
+  resources :rents
   resources :arts
   resources :artists
   resources :users

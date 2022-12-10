@@ -31,14 +31,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_29_165057) do
     t.index ["artist_id"], name: "index_arts_on_artist_id"
   end
 
-  create_table "bids", force: :cascade do |t|
+  create_table "rents", force: :cascade do |t|
     t.integer "price"
+    t.date "start_date"
+    t.date "end_date"
     t.integer "user_id", null: false
     t.integer "art_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["art_id"], name: "index_bids_on_art_id"
-    t.index ["user_id"], name: "index_bids_on_user_id"
+    t.index ["art_id"], name: "index_rents_on_art_id"
+    t.index ["user_id"], name: "index_rents_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -61,8 +63,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_29_165057) do
   end
 
   add_foreign_key "arts", "artists"
-  add_foreign_key "bids", "arts"
-  add_foreign_key "bids", "users"
+  add_foreign_key "rents", "arts"
+  add_foreign_key "rents", "users"
   add_foreign_key "reviews", "arts"
   add_foreign_key "reviews", "users"
 end
