@@ -5,6 +5,7 @@ class CreateArtists < ActiveRecord::Migration[7.0]
       t.string :password
       t.string :email
       t.string :about
+      t.string :image
 
       t.timestamps
     end
